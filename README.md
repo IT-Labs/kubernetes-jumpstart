@@ -90,9 +90,11 @@ kubectl get pods
 kubectl describe pod nginx-app
 ```
 
-3.8. Exec into the Container within the Pod
+3.8. Exec into the Container within the Pod (useful for troubleshooting)
 ```
 kubectl exec nginx-app -it sh
+ls
+exit
 ```
 
 3.9. Delete the Pod
@@ -115,7 +117,12 @@ kubectl delete pod nginx-app
 kubectl apply -f Pods/nginx-pod-probes.yaml
 ```
 
-3.13. Delete the Pod
+3.13. Check Pod logs (useful for troubleshooting)
+```
+kubectl logs nginx-app
+```
+
+3.14. Delete the Pod
 ```
 kubectl delete pod nginx-app
 ```
@@ -144,7 +151,7 @@ kubectl scale -f Deployments/nginx-deployment.yaml --replicas=3
 kubectl describe deployment nginx-app
 ```
 
-4.5. Delete Deployment
+4.5. Delete Deployment (Optional, the Pods are needed for the next section)
 ```
 kubectl delete deployment nginx-app
 ```
@@ -161,22 +168,30 @@ kubectl apply -f Services/clusterIP-service.yaml
 kubectl get services
 ```
 
-5.3. Create NodePort Service through file
+5.3. Test Service and Pod with curl
+```
+kubectl exec [pod-name] -it sh
+apk add curl
+curl -s http://nginx-clusterip-service:8080
+exit
+```
+
+5.4. Create NodePort Service through file
 ```
 kubectl apply -f Services/nodeport-service.yaml 
 ```
 
-5.4. Get Services
+5.5. Get Services
 ```
 kubectl get services
 ```
 
-5.5. Create LoadBalancer Service through file
+5.6. Create LoadBalancer Service through file
 ```
 kubectl apply -f Services/loadbalancer-service.yaml 
 ```
 
-5.6. Delete Services
+5.7. Delete Services
 ```
 kubectl delete service nginx-clusterip-service
 kubectl delete service nginx-nodeport-service
@@ -258,6 +273,11 @@ kubectl apply -f Voting-App/
 7.4. Navigate to http://localhost:31000 to access the Voting application
 
 7.5. Navigate to http://localhost:31001 to access the Voting Results application
+
+7.6. Delete Namespace
+```
+kubectl delete namespace vote
+```
 
 ## 8. Delete Kubernetes cluster from your localhost
 
