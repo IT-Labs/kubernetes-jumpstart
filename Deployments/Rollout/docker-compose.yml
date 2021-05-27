@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  node-app-v1:
+    image: node-app:1.0
+    build:
+      dockerfile: dockerfile    
+      context: ./node-app/v1
+  node-app-v2:
+    image: node-app:2.0
+    build:
+      dockerfile: dockerfile 
+      context: ./node-app/v2
+  node-app-v3:
+    image: node-app:3.0
+    build:
+      dockerfile: dockerfile
+      context: ./node-app/v3

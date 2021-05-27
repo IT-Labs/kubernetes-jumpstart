@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-app
+  labels:
+    app: nginx
+    rel: stable
+spec:
+  containers:
+  - name: nginx-app
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+    resources: {}

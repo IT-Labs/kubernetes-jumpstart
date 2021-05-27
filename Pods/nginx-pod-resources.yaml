@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-app
+  labels:
+    app: nginx
+    rel: stable
+spec:
+  containers:
+  - name: nginx-app
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        memory: "128Mi" #128 MB
+        cpu: "200m" #200 millicpu (20% of the cpu)
+      requests:
+        memory: "64Mi" # = 64 MB
+        cpu: "50m" # = 50 millicpu (5% of the cpu)
