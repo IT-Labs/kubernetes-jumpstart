@@ -4,7 +4,7 @@ metadata:
   name: nginx-app
   labels:
     app: nginx
-    rel: stable
+    env: dev
 spec:
   containers:
   - name: nginx-app
