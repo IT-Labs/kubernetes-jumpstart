@@ -93,8 +93,6 @@ kubectl describe pod nginx-app
 3.8. Exec into the Container within the Pod (useful for troubleshooting)
 ```
 kubectl exec nginx-app -it sh
-ls
-exit
 ```
 
 3.9. Delete the Pod
